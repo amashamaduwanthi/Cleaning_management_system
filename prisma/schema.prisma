@@ -6,10 +6,33 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  username     String    @unique
+  passwordHash String
+  bookings     Booking[]
+}
+
+model Service {
+  id       Int       @id @default(autoincrement())
+  name     String
+  bookings Booking[]
+}
+
+model Booking {
+  id           Int      @id @default(autoincrement())
+  customerName String
+  address      String
+  dateTime     DateTime
+  serviceId    Int
+  userId       Int
+  service      Service  @relation(fields: [serviceId], references: [id])
+  user         User     @relation(fields: [userId], references: [id])
 }
