@@ -22,7 +22,7 @@ router.get('/view',async (req,res)=>{
     }
 })
 router.delete('/delete/:id',async (req,res)=>{
-    const id: string  = req.params.id;
+    const id: number  = +req.params.id;
     try{
         const deleteBooking=await DeleteBooking(id);
         res.json(deleteBooking)
@@ -32,7 +32,7 @@ router.delete('/delete/:id',async (req,res)=>{
 })
 router.put('/update/:id',async (req,res)=>{
     const booking:Booking=req.body;
-    const id: string  = req.params.id;
+    const id: number  = +req.params.id;
     try {
         const updateBooking=await UpdateBooking(id,booking);
         res.send(updateBooking)

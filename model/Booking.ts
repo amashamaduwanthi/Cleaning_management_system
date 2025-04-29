@@ -1,5 +1,5 @@
 export default class Booking {
-    id!: number;
+    id?:number;
     customerName!: string;
     address!: string;
     dateTime!: string;

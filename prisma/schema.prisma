@@ -21,9 +21,8 @@ model User {
 }
 
 model Service {
-  id       Int       @id @default(autoincrement())
-  name     String
-  bookings Booking[]
+  id   Int    @id
+  name String
 }
 
 model Booking {
@@ -33,6 +32,5 @@ model Booking {
   dateTime     DateTime
   serviceId    Int
   userId       Int
-  service      Service  @relation(fields: [serviceId], references: [id])
   user         User     @relation(fields: [userId], references: [id])
 }

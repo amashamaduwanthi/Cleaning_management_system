@@ -24,7 +24,7 @@ export async function getAllBookings(){
     }
 }
 
-export async function DeleteBooking(id:string){
+export async function DeleteBooking(id:number){
     try{
         const deleteBooking=await prisma.booking.delete({
             where:{id:id}
@@ -36,7 +36,7 @@ export async function DeleteBooking(id:string){
     }
 }
 
-export async function UpdateBooking(id:string,b:Booking){
+export async function UpdateBooking(id:number,b:Booking){
     try {
         const updateBooking=await prisma.booking.update({
             where:{id:id},
