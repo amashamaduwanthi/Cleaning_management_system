@@ -1,5 +1,5 @@
 import express from 'express';
-import {addBooking} from "../database/booking-prisma-data-store";
+import {addBooking, getAllBookings} from "../database/booking-prisma-data-store";
 import Booking from "../model/Booking";
 const router = express.Router();
 
@@ -17,5 +17,15 @@ router.post('/add', async (req, res) => {
     }
 
 });
+router.get('/view',async (req,res)=>{
+    try {
+        const bookings=await getAllBookings();
+        res.json(bookings);
+    }catch (err){
+        console.log("error getting bookings",err)
+    }
+
+})
+
 
 export default router;

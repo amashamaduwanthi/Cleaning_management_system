@@ -17,3 +17,10 @@ export async function addBooking(b:Booking){
     console.log("booking added successfully",newBooking);
     return newBooking;
 }
+export async function getAllBookings(){
+    try {
+        return await prisma.booking.findMany();
+    }catch (err){
+        console.log("error getting Booking data",err)
+    }
+}
