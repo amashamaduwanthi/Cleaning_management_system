@@ -1,6 +1,4 @@
-// src/data/booking-prisma-data-store.ts
 import { PrismaClient } from '@prisma/client';
-import express from "express";
 import Booking from "../model/Booking";
 const prisma = new PrismaClient();
 
@@ -24,3 +22,17 @@ export async function getAllBookings(){
         console.log("error getting Booking data",err)
     }
 }
+
+export async function DeleteBooking(id:string){
+    try{
+        const deleteBooking=await prisma.booking.delete({
+            where:{id:id}
+        })
+        console.log("Booking delete  Successfully")
+        return deleteBooking
+    }catch (err){
+        console.log("Booking delete Unsuccessfully",err)
+
+    }
+}
+

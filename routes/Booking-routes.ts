@@ -1,5 +1,5 @@
 import express from 'express';
-import {addBooking, getAllBookings} from "../database/booking-prisma-data-store";
+import {addBooking, DeleteBooking, getAllBookings} from "../database/booking-prisma-data-store";
 import Booking from "../model/Booking";
 const router = express.Router();
 
@@ -26,6 +26,14 @@ router.get('/view',async (req,res)=>{
     }
 
 })
-
+router.delete('/delete/:id',async (req,res)=>{
+    const id: string  = req.params.id;
+    try{
+        const deleteBooking=await DeleteBooking(id);
+        res.json(deleteBooking)
+    }catch (err){
+        console.log("Error deleting Booking",err)
+    }
+})
 
 export default router;
