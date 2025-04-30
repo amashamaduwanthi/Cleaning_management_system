@@ -2,7 +2,7 @@ import express from 'express';
 import BookingRoutes from "./routes/Booking-routes";
 const app = express();
 import cors from 'cors';
-import ServiceRoutes from "./routes/Service-routes";
+
 app.use(express.json())
 
 app.use(cors({
@@ -13,8 +13,8 @@ app.use(cors({
 }));
 
 app.use('/booking',BookingRoutes)
-app.use('/service',ServiceRoutes)
 
-app.listen(3005, (err=>{
+
+app.listen(3002, (err=>{
     console.log("Server running on port 3002");
 }));

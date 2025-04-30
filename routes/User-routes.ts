@@ -1,8 +1,7 @@
-import {Service} from "@prisma/client";
-import {addServices} from "../database/service-prisma-data-store";
-import router from "./Service-routes";
+
 import {addNewUser} from "../database/User-prisma-data-store";
 import User from "../model/User";
+import router from "./Booking-routes";
 
 router.post('/add', async (req, res) => {
     const body = req.body;
@@ -14,3 +13,5 @@ router.post('/add', async (req, res) => {
         res.status(400).send("Error Adding User")
     }
 });
+
+

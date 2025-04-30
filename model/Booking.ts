@@ -3,6 +3,6 @@ export default class Booking {
     customerName!: string;
     address!: string;
     dateTime!: string;
-    serviceId!: number;
+    serviceType!: string;
     userId!: number;
 }

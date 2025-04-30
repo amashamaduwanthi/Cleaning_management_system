@@ -8,7 +8,7 @@ export async function addBooking(b:Booking){
             customerName:b.customerName,
             address:b.address,
             dateTime:b.dateTime,
-            serviceId:b.serviceId,
+            serviceType:b.serviceType,
             userId:b.userId
         }
     })
@@ -44,7 +44,7 @@ export async function UpdateBooking(id:number,b:Booking){
                customerName:b.customerName,
                address:b.address,
                 dateTime:b.dateTime,
-                serviceId:b.serviceId,
+                serviceType:b.serviceType,
                 userId:b.userId
             }
         })

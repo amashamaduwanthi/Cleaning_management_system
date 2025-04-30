@@ -14,23 +14,18 @@ datasource db {
 }
 
 model User {
-  id           Int       @id @default(autoincrement())
+  id           Int       @id
   username     String    @unique
   passwordHash String
   bookings     Booking[]
 }
 
-model Service {
-  id   Int    @id
-  name String
-}
-
 model Booking {
-  id           Int      @id @default(autoincrement())
+  id           Int    @id @default(autoincrement())
   customerName String
   address      String
-  dateTime     DateTime
-  serviceId    Int
+  dateTime     String
+  serviceType  String
   userId       Int
-  user         User     @relation(fields: [userId], references: [id])
+  user         User   @relation(fields: [userId], references: [id])
 }
